@@ -26,4 +26,19 @@
 ;; 启动是全屏运行 
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 
+;; 定义透明函数处理
+(setq alpha-list '((90 70) (100 100)))
+(defun loop-alpha ()
+  (interactive)
+  (let ((h (car alpha-list)))
+    ((lambda (a ab)
+       (set-frame-parameter (selected-frame) 'alpha (list a ab))
+       (add-to-list 'default-frame-alist (cons 'alpha (list a ab))))
+     (car h) (car (cdr h)))
+    (setq alpha-list (cdr (append alpha-list (list h))))))
+
+;; 启动设定透明
+(loop-alpha)
+
+
 (provide 'init_ui)
