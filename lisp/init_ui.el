@@ -27,7 +27,7 @@
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 
 ;; 定义透明函数处理
-(setq alpha-list '((90 70) (100 100)))
+(setq alpha-list '((90 90) (100 100)))
 (defun loop-alpha ()
   (interactive)
   (let ((h (car alpha-list)))

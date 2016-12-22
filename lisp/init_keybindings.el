@@ -20,4 +20,13 @@
 ;; 透明操作
 (global-set-key (kbd "<f10>") 'loop-alpha)
 
+;; 绑定调整代码缩进
+(global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+
+;; 设定hippie补全
+(global-set-key (kbd "s-/") 'hippie-expand)
+
+;; iedit mode
+(global-set-key (kbd "M-s-e") 'iedit-mode)
+
 (provide 'init_keybindings)

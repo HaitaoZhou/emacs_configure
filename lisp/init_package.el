@@ -15,6 +15,7 @@
                           counsel
                           smartparens
                           popwin
+                          iedit
                           ;; --- Themes ---
                           monokai-theme
                           ;; solarized-theme
@@ -34,7 +35,7 @@
     (when (not (package-installed-p pkg))
       (package-install pkg))))
 
-;; 配置光标自动增强
+;; 配置光标自动跳转
 (require 'popwin)
 (popwin-mode 1)
 
@@ -50,5 +51,12 @@
 
 ;; 开启全局 Company 补全
 (global-company-mode t)
+
+;; require dired-x for c-x c-j打开文件所在目录
+(require 'dired-x)
+
+;; require iedit for multiple regions
+(require 'iedit)
+
 
 (provide 'init_package)
