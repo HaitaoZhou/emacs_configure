@@ -20,6 +20,9 @@
 ;; 括号高亮配对模式
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
+;; 文本解码设置默认为UTF-8
+(set-language-environment "UTF-8")
+
 ;; 优化代码缩进
 (defun indent-buffer()
   (interactive)
@@ -59,5 +62,11 @@
 (with-eval-after-load 'dired
     (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
+;; 删除\r(^M)换行符
+(defun remove-dos-eol ()
+  "Replace DOS eolns CR LF with Unix eolns CR"
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t) (replace-match "")))
 
 (provide 'init_better_default)

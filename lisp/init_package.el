@@ -7,19 +7,17 @@
 
 ;; Add Packages
 (defvar haitao/packages '(
-                          ;; --- Auto-completion ---
-                          company
-                          ;; --- Better Editor ---
-                          hungry-delete
-                          swiper
-                          counsel
-                          smartparens
-                          popwin
-                          iedit
-                          ;; --- Themes ---
-                          monokai-theme
-                          ;; solarized-theme
-                          ) "Default packages")
+			  company
+			  hungry-delete
+			  swiper
+			  counsel
+			  smartparens
+			  popwin
+			  iedit
+			  which-key
+			  yasnippet
+			  monokai-theme
+			  ) "Default packages")
 
 (setq package-selected-packages haitao/packages)
 
@@ -58,5 +56,8 @@
 ;; require iedit for multiple regions
 (require 'iedit)
 
+;; require which key
+(require 'which-key)
+(which-key-mode)
 
 (provide 'init_package)
