@@ -17,7 +17,14 @@
 ;; 选中替换模式开启
 (delete-selection-mode 1)
 
-;; 括号高亮配对模式
+;; 优化括号高亮函数
+(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+  "Highlight enclosing parens."
+  (cond ((looking-at-p "\\s(") (funcall fn))
+	(t (save-excursion
+	     (ignore-errors (backward-up-list))
+	     (funcall fn)))))
+;; 开启括号高亮配对模式
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 ;; 文本解码设置默认为UTF-8
@@ -54,6 +61,9 @@
 ;; 文件目录操作取消递归确认
 (setq dired-recursive-deletes 'always)
 (setq dired-recursive-copies 'always)
+
+;; 关闭警告音
+(setq ring-bell-function 'ignore)
 
 ;; 重用唯一的一个缓冲区作为 Dired Mode 显示专用缓冲区
 (put 'dired-find-alternate-file 'disabled nil)
