@@ -11,6 +11,7 @@
 			  hungry-delete
 			  swiper
 			  counsel
+			  smex
 			  smartparens
 			  popwin
 			  iedit
@@ -18,6 +19,7 @@
 			  yasnippet
 			  monokai-theme
 			  youdao-dictionary
+			  imenu-list
 			  ) "Default packages")
 
 (setq package-selected-packages haitao/packages)

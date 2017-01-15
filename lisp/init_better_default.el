@@ -101,4 +101,8 @@
 	regexp-history)
   (call-interactively 'occur))
 
+;; imuenu list config
+(setq imenu-list-focus-after-activation t)
+(setq imenu-list-auto-resize t)
+
 (provide 'init_better_default)
