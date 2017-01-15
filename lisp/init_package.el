@@ -17,6 +17,7 @@
 			  which-key
 			  yasnippet
 			  monokai-theme
+			  youdao-dictionary
 			  ) "Default packages")
 
 (setq package-selected-packages haitao/packages)

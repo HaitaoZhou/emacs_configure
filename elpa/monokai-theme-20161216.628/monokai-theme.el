@@ -145,7 +145,7 @@ Also affects 'linum-mode' background."
   :type 'string
   :group 'monokai)
 
-(defcustom monokai-background "#000000"
+(defcustom monokai-background "#272822"
   "Adaptive colors - background"
   :type 'string
   :group 'monokai)

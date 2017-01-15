@@ -18,12 +18,20 @@
 (delete-selection-mode 1)
 
 ;; 优化括号高亮函数
-(define-advice show-paren-function (:around (fn) fix-show-paren-function)
-  "Highlight enclosing parens."
-  (cond ((looking-at-p "\\s(") (funcall fn))
-	(t (save-excursion
-	     (ignore-errors (backward-up-list))
-	     (funcall fn)))))
+(when (version< emacs-version "25")
+  (defadvice show-paren-function (around fix-show-paren-function activate)
+    (cond ((looking-at-p "\\s(") ad-do-it)
+	  (t (save-excursion
+	       (ignore-errors (backward-up-list))
+	       ad-do-it)))
+    ))
+(when (version<= "25" emacs-version)
+  (define-advice show-paren-function (:around (fn) fix-show-paren-function)
+    "Highlight enclosing parens."
+    (cond ((looking-at-p "\\s(") (funcall fn))
+	  (t (save-excursion
+	       (ignore-errors (backward-up-list))
+	       (funcall fn))))))
 ;; 开启括号高亮配对模式
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
@@ -70,7 +78,7 @@
 
 ;; 延迟加载
 (with-eval-after-load 'dired
-    (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
 ;; 删除\r(^M)换行符
 (defun remove-dos-eol ()
@@ -78,5 +86,19 @@
   (interactive)
   (goto-char (point-min))
   (while (search-forward "\r" nil t) (replace-match "")))
+
+;; occur mode
+(defun occur-dwim ()
+  "Call `occur' with a sane default."
+  (interactive)
+  (push (if (region-active-p)
+	    (buffer-substring-no-properties
+	     (region-beginning)
+	     (region-end))
+	  (let ((sym (thing-at-point 'symbol)))
+	    (when (stringp sym)
+	      (regexp-quote sym))))
+	regexp-history)
+  (call-interactively 'occur))
 
 (provide 'init_better_default)
