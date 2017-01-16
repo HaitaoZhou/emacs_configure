@@ -40,5 +40,17 @@
 ;; 启动设定透明
 (loop-alpha)
 
+;; 这句指定默认英文字体为Dejavu Sans Mono，大小10
+(set-default-font "Dejavu Sans Mono 12")
+
+;; 前面一串“(if...lambda...(with-select-frame frame ())...)"是个很好的函数框架，意思是frame创建后载入，用这个框架可以解决--daemon启动的问题
+;; 只有set-fontset-font一句指定修改字符集'unicode的字体为文泉驿等宽微米黑，大小为12
+(if (and (fboundp 'daemonp) (daemonp))
+    (add-hook 'after-make-frame-functions
+	      (lambda (frame)
+		(with-selected-frame frame
+		  (set-fontset-font "fontset-default"
+				    'unicode "WenQuanyi Micro Hei Mono 15"))))
+  (set-fontset-font "fontset-default" 'unicode "WenQuanYi Micro Hei Mono 15"))
 
 (provide 'init_ui)

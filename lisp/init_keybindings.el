@@ -20,6 +20,9 @@
 ;; 透明操作
 (global-set-key (kbd "<f10>") 'loop-alpha)
 
+;; imenu list
+(global-set-key (kbd "<f12>") 'imenu-list-minor-mode)
+
 ;; 绑定调整代码缩进
 (global-set-key (kbd "M-s-\\") 'indent-region-or-buffer)
 

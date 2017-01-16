@@ -5,6 +5,9 @@
 (when (>= emacs-major-version 24)
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t))
 
+(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+
 ;; Add Packages
 (defvar haitao/packages '(
 			  company
@@ -62,5 +65,14 @@
 ;; require which key
 (require 'which-key)
 (which-key-mode)
+
+;; yasnippet
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(setq yas-snippet-dirs
+      '("~/.emacs.d/snippets"                 ;; personal snippets
+	"~/.emacs.d/elpa/yasnippet-20161221.1953/snippets"         ;; the default collection
+	))
+(yas-global-mode 1)
 
 (provide 'init_package)
