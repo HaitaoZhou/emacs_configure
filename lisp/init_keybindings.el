@@ -11,8 +11,9 @@
 ;; 将函数 open-init-file 绑定到 <f2> 键上
 (global-set-key (kbd "<f2>") 'open-init-file)
 
-;; 设置 org-agenda 打开快捷键
+;; 设置 org快捷键
 (global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
 
 ;; 绑定可以用之后的插件 counsel 代替
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)

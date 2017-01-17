@@ -108,8 +108,8 @@
 ;; 鼠标滚轮，默认的滚动太快，这里改为3行
 (defun up-slightly () (interactive) (scroll-up 3))
 (defun down-slightly () (interactive) (scroll-down 3))
-(global-set-key [mouse-4] 'down-slightly)
-(global-set-key [mouse-5] 'up-slightly)
+(global-set-key [wheel-up] 'down-slightly)
+(global-set-key [wheel-down] 'up-slightly)
 
 ;; my fix for tab indent
 (defun haitao/indent-region(numSpaces)
@@ -154,7 +154,12 @@
   )
 
 (add-hook 'prog-mode-hook 'haitao/hack-tab-key)
-(add-hook 'text-mode-hook 'haitao/hack-tab-key)
+;;(add-hook 'text-mode-hook 'haitao/hack-tab-key)
+
+;; 空格代替tab
+(setq-default indent-tabs-mode nil)
+(setq-default c-basic-offset 4)
+(setq-default tab-width 4)
 
 
 (provide 'init_better_default)

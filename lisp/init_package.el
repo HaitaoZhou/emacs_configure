@@ -75,4 +75,7 @@
 	))
 (yas-global-mode 1)
 
+;; cua-mode
+(cua-mode 1)
+
 (provide 'init_package)
