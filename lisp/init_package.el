@@ -27,6 +27,9 @@
                           flycheck
                           py-autopep8
                           company-anaconda
+                          xcscope
+                          mwim
+                          ibuffer-projectile
                           ) "Default packages")
 
 (setq package-selected-packages haitao/packages)
@@ -78,11 +81,14 @@
 (require 'yasnippet)
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 (setq yas-snippet-dirs
-      '("~/.emacs.d/snippets"                 ;; personal snippets
+      '("~/work/snippets"                 ;; personal snippets
         "~/.emacs.d/elpa/yasnippet-20161221.1953/snippets" ;; the default collection
         ))
 (yas-global-mode 1)
 
+;; xcscope
+(require  'xcscope)
+(cscope-setup)
 
 ;; cua-mode
 (cua-mode 1)
@@ -96,6 +102,13 @@
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+
+;; ibuffer-projectile
+(add-hook 'ibuffer-hook
+          (lambda ()
+            (ibuffer-projectile-set-filter-groups)
+            (unless (eq ibuffer-sorting-mode 'alphabetic)
+              (ibuffer-do-sort-by-alphabetic))))
 
 
 (provide 'init_package)
