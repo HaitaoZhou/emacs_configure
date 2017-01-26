@@ -30,6 +30,7 @@
                           xcscope
                           mwim
                           ibuffer-projectile
+                          magit
                           ) "Default packages")
 
 (setq package-selected-packages haitao/packages)

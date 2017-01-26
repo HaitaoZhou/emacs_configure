@@ -161,5 +161,17 @@
 (setq-default c-basic-offset 4)
 (setq-default tab-width 4)
 
+;; comment
+(defun comment-or-uncomment-line-or-region ()
+  "Comments or uncomments the current line or region."
+  (interactive)
+  (if (region-active-p)
+      (comment-or-uncomment-region (region-beginning) (region-end))
+    (comment-or-uncomment-region (line-beginning-position) (line-end-position))
+    )
+  )
+
+(global-set-key [remap comment-or-uncomment-region] 'comment-or-uncomment-line-or-region)
+
 
 (provide 'init_better_default)

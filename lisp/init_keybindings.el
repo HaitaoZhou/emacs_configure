@@ -53,4 +53,7 @@
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer-list-buffers)
 
+;; magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
 (provide 'init_keybindings)
