@@ -56,4 +56,20 @@
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
+;; copy region or whole line
+(global-set-key (kbd "M-w")
+                '(lambda ()
+                   (interactive)
+                   (if mark-active
+                       (kill-ring-save (region-beginning)
+                                       (region-end))
+                     (progn
+                       (kill-ring-save (line-beginning-position)
+                                       (line-end-position))
+                       (message "copied line")))))
+
+;; expand-region
+(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C--") 'er/mark-inside-pairs)
+
 (provide 'init_keybindings)

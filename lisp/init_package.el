@@ -31,6 +31,8 @@
                           mwim
                           ibuffer-projectile
                           magit
+                          org-pomodoro
+                          expand-region
                           ) "Default packages")
 
 (setq package-selected-packages haitao/packages)
@@ -111,5 +113,10 @@
             (unless (eq ibuffer-sorting-mode 'alphabetic)
               (ibuffer-do-sort-by-alphabetic))))
 
+;; pomodoro
+(require 'org-pomodoro)
+
+;; expand-region
+(require 'expand-region)
 
 (provide 'init_package)

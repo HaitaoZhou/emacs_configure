@@ -10,7 +10,9 @@
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/work/work_lists/org/gtd.org" "TO-DO")
            "* TODO [#B] %?\n  %i\n"
-           :empty-lines 1)))
+           :empty-lines 1)
+          ("e" "Emacs Better" entry (file+headline "~/work/work_lists/org/better_emacs.org" "Emacs Better")
+           "* TODO %?\n  %i\n")))
   )
 
 
