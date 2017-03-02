@@ -72,4 +72,11 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C--") 'er/mark-inside-pairs)
 
+;; mark adn jump
+(global-set-key (kbd "C-.") 'ska-point-to-register)
+(global-set-key (kbd "C-,") 'ska-jump-to-register)
+
+;; go-to-char
+(global-set-key (kbd "C-c j") 'go-to-char)
+
 (provide 'init_keybindings)

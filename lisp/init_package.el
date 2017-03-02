@@ -92,6 +92,8 @@
 ;; xcscope
 (require  'xcscope)
 (cscope-setup)
+(setq cscope-do-not-update-database t)
+
 
 ;; cua-mode
 (cua-mode 1)
