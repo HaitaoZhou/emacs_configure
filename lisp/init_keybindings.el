@@ -79,4 +79,15 @@
 ;; go-to-char
 (global-set-key (kbd "C-c j") 'go-to-char)
 
+;; ace-jump
+(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+(global-set-key (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
+;; highlight
+(require 'highlight-symbol)
+(global-set-key (kbd "<f8>") 'highlight-symbol)
+(global-set-key (kbd "C-<f8>") 'highlight-symbol-next)
+(global-set-key (kbd "S-<f8>") 'highlight-symbol-prev)
+(global-set-key (kbd "M-<f8>") 'highlight-symbol-query-replace)
+
 (provide 'init_keybindings)

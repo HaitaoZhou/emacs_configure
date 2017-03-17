@@ -33,6 +33,9 @@
                           magit
                           org-pomodoro
                           expand-region
+                          ace-jump-mode
+                          highlight-symbol
+                          auto-highlight-symbol
                           ) "Default packages")
 
 (setq package-selected-packages haitao/packages)
@@ -120,5 +123,9 @@
 
 ;; expand-region
 (require 'expand-region)
+
+(require 'auto-highlight-symbol)
+(global-auto-highlight-symbol-mode t)
+
 
 (provide 'init_package)
